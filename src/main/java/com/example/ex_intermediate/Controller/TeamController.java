@@ -5,18 +5,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import com.example.ex_intermediate.Domain.Team;
-import com.example.ex_intermediate.Service.teamService;
+import com.example.ex_intermediate.Service.TeamService;
 
 /**
  * 野球チームのコントローラクラス
  */
 @Controller
 @RequestMapping("/team")
-public class teamController {
+public class TeamController {
     @Autowired
-    private teamService teamservice;
+    private TeamService teamservice;
 
     /**
      * 野球チームの一覧を表示する
@@ -30,8 +29,10 @@ public class teamController {
     }
 
     /**
-     * 
-     * 
+     * 野球チームの詳細を表示する
+     * @param id クリックしたチームid
+     * @param model
+     * @return detail
      */
     @GetMapping("/showDetail")
     public String showDetail(Integer id,Model model){
@@ -39,6 +40,4 @@ public class teamController {
         model.addAttribute("team", team);
         return "detail";
     }
-
-
 }

@@ -3,18 +3,16 @@ package com.example.ex_intermediate.Service;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import com.example.ex_intermediate.Domain.Team;
-import com.example.ex_intermediate.Repository.teamRepository;
+import com.example.ex_intermediate.Repository.TeamRepository;
 
 /**
  * 野球チームのサービスクラス
  */
 @Service
-@Transactional
-public class teamService {
+public class TeamService {
     @Autowired
-    private teamRepository teamrepository;
+    private TeamRepository teamrepository;
 
     /**
      * 野球チームリストを作成するメソッド
