@@ -13,7 +13,7 @@ import com.example.ex_intermediate.Domain.Team;
  * 野球チームのリポジトリクラス
  */
 @Repository
-public class teamRepository {
+public class TeamRepository {
     @Autowired
     private NamedParameterJdbcTemplate template;
 
