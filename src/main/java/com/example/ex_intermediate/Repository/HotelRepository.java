@@ -26,23 +26,17 @@ public class HotelRepository {
         return hotel;
     };
 
+
     /**
      * ホテルの検索メソッド
      * @param price 入力金額
      * @return ホテル情報が格納されたリスト
      */
-    public List<Hotel> findHotels(Integer price){
+    public List<Hotel> findHotels(Integer price,String sql){
         MapSqlParameterSource param = new MapSqlParameterSource();
         param.addValue("price", price);
-        StringBuilder sql =new StringBuilder("SELECT hotel_name,nearest_station,price"
-                +" FROM hotels WHERE 1=1");
-
-        if(price !=null){
-            sql.append(" AND price<= :price");
-        }
         
-        sql.append(" ORDER BY price DESC");
-        List<Hotel> hotels=template.query(sql.toString(),param,HOTEL_ROW_MAPPER);  
-        return hotels;      
+        List<Hotel> hotels = template.query(sql, param, HOTEL_ROW_MAPPER);
+        return hotels;   
     }
 }
